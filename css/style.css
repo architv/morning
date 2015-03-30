@@ -1,1 +1,6 @@
 /* Empty. Add your own CSS if you like */
+
+.item-avatar>img{
+	width:20px !important;
+	height:20px !important;
+}
