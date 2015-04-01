@@ -15,6 +15,9 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
+    <!-- social sharing plugin -->
+    <script src="js/ng-cordova.min.js"></script>
+
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
@@ -35,18 +38,19 @@
 
     <!-- Center content -->
       <ion-side-menu-content>
-        <ion-header-bar class="bar-dark">
-          <h1 class="title">Today</h1>
-          <!-- New Task button-->
-        <button class="button button-icon">
-          <i class="icon ion-plus-circled"></i>
-        </button>
-        </ion-header-bar>
+        <div class="bar bar-header bar-royal">
+          <button class="button button-icon icon ion-navicon"></button>
+          <h1 class="h1 title">Today</h1>
+            <!-- New Task button-->
+          <button class="button button-icon">
+            <i class="icon ion-plus-circled"></i>
+          </button>
+        </div>
         
 
-        <ion-content>
+        <ion-content overflow-scroll='true'>
     <!-- our list and list items -->
-
+          <!-- <ion-scroll direction="y" class="available-scroller"> -->
           <ion-list>
             <ion-item ng-repeat="item in feed">
 
@@ -62,22 +66,30 @@
                       <img src="{{item.image}}">
                     </div>
 
+                    <!-- <div class="item item-image">
+                      <img style="width:200px; height:auto;" src="{{item.image}}">
+                      <p>
+                        Monica Lewinsky comes out of the blues yo help people. This is some random text I am typing just to test whether the scroll works better without images.
+                      </p>
+                    </div> -->
+
                     <div class="item tabs tabs-secondary tabs-icon-left">
                         <a class="tab-item" href="#">
-                          <i class="icon ion-thumbsup"></i>
-                          Like
+                          <i class="icon ion-android-favorite"></i>
+                          Favourite
                         </a>
                         
-                        <a class="tab-item" href="#">
-                          <i class="icon ion-share"></i>
+                        <a class="tab-item" href="" ng-click="shareViaTwitter('some message', null, 'http://blog.nraboy.com')">
+                          <i class="icon ion-android-share-alt"></i>
                           Share
-                        </a>
+                        </button>
                       </div>
 
                   </div>
 
             </ion-item>
           </ion-list>
+          <!-- </ion-scroll> -->
         </ion-content>
       
       </ion-side-menu-content>
@@ -85,7 +97,7 @@
       <!-- Left menu -->
       <ion-side-menu side="left">
         <ion-header-bar class="bar-dark">
-          <h1 class="title">Menu</h1>
+          <h1 class="h1 title">Menu</h1>
         </ion-header-bar>
       </ion-side-menu>
 

@@ -4,3 +4,12 @@
 	width:20px !important;
 	height:20px !important;
 }
+
+.available-scroller {
+  height: 600px;
+}
+
+img {
+  width:  200px;
+  height: auto;
+}
