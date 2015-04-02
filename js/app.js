@@ -1,5 +1,5 @@
 
-angular.module('morningapp', ['ionic', 'ngCordova'])
+var example = angular.module('morningapp', ['ionic', 'ngCordova'])
 
 .controller('FeedController', function($scope, $http, $ionicLoading, $cordovaSocialSharing) {
 
@@ -18,17 +18,21 @@ angular.module('morningapp', ['ionic', 'ngCordova'])
     }, function(err) {
       console.error('ERR', err);
     })
-
-  $scope.shareAnywhere = function() {
-    $cordovaSocialSharing.share("This is your message", "This is your subject", "www/imagefile.png", "http://blog.nraboy.com");
-  }
- 
-  $scope.shareViaTwitter = function(message, image, link) {
-    $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
-        $cordovaSocialSharing.shareViaTwitter(message, image, link);
-    }, function(error) {
-        alert("Cannot share on Twitter");
-    });
-  }
   
+});
+
+example.controller("ExampleController", function($scope, $cordovaSocialSharing) {
+ 
+    $scope.shareAnywhere = function(title, image, link) {
+        $cordovaSocialSharing.share("Shared via Morning", title, image, link);
+    }
+ 
+    $scope.shareViaTwitter = function(message, image, link) {
+        $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
+            $cordovaSocialSharing.shareViaTwitter(message, image, link);
+        }, function(error) {
+            alert("Cannot share on Twitter");
+        });
+    }
+ 
 });
