@@ -24,7 +24,7 @@
     <!-- your app's js -->
     <script src="js/app.js"></script>
   </head>
-  <body ng-app="morningapp" >
+  <body ng-app="morningapp" ng-controller="MenuController">
 
     <!-- <ion-pane>
       <ion-header-bar class="bar-stable">
@@ -34,7 +34,7 @@
       </ion-content>
     </ion-pane> -->
 
-    <ion-side-menus ng-controller="MenuController">
+    <ion-side-menus>
 
     <!-- Center content -->
       <ion-side-menu-content>
@@ -46,12 +46,21 @@
             <i class="icon ion-plus-circled"></i>
           </button>
         </div>
+      
+      </ion-side-menu-content>
 
-        <br><br>
-        
+      <!-- Left menu -->
+      <ion-side-menu side="left" >
+        <ion-header-bar class="bar-dark">
+          <h1 class="h1 title">Menu</h1>
+        </ion-header-bar>
+      </ion-side-menu>
 
+    </ion-side-menus>
+
+    <ion-view title="'AT80 Movies'" left-buttons="leftButtons" style="background:#161c1f;">
         <ion-content overflow-scroll='true'>
-    <!-- our list and list items -->
+        <!-- our list and list items -->
           <!-- <ion-scroll direction="y" class="available-scroller"> -->
           <ion-list ng-controller="FeedController">
             <ion-item ng-repeat="item in feed">
@@ -64,11 +73,6 @@
                       <!--<p>{{item.description}}</p>-->
                     </div>
 
-                    <!--
-                    <div class="item item-image">
-                      <img src="{{item.image}}">
-                    </div>
-                    -->
                     <div class="thumbnail">
                         <img src="{{item.image}}" alt="..." />
                         <div class="wrapper">
@@ -95,17 +99,7 @@
           </ion-list>
           <!-- </ion-scroll> -->
         </ion-content>
-      
-      </ion-side-menu-content>
-
-      <!-- Left menu -->
-      <ion-side-menu side="left">
-        <ion-header-bar class="bar-dark">
-          <h1 class="h1 title">Menu</h1>
-        </ion-header-bar>
-      </ion-side-menu>
-
-    </ion-side-menus>
+    </ion-view>
 
   </body>
 </html>
