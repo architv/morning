@@ -63,24 +63,34 @@
         <!-- our list and list items -->
           <!-- <ion-scroll direction="y" class="available-scroller"> -->
           <ion-list ng-controller="FeedController">
-            <ion-item ng-repeat="item in feed">
+            <ion-item ng-repeat="item in feed" class="background">
 
-                  <div class="list card">
+                  <div class="list card" style="margin-bottom:5px; margin-top:5px;">
 
-                    <div class="item item-avatar">
+                     <!-- <div class="item item-avatar">
                       <img src="http://www.google.com/s2/favicons?domain={{item.link}}">
-                      <h2>{{item.title}}</h2>
-                      <!--<p>{{item.description}}</p>-->
-                    </div>
+                      <h2>{{item.title}}</h2> -->
+                      <!--<p>{{item.description}}</p>
+                    </div> -->
 
-                    <div class="thumbnail">
+                    <!-- <div class="thumbnail">
                         <img src="{{item.image}}" alt="..." />
                         <div class="wrapper">
                             <div class="caption post-content">
                                 <h2>{{item.title}}</h2>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
+
+                     <div class="card-image item-image">
+                            <!-- <img src="{{item.image}}"> -->
+                            <!-- <div class="item item-image"> -->
+                              <img src="{{item.image}}" alt="..." />
+                            <!-- </div> -->
+                            <div class="banner"></div>
+                              <h2>{{item.title}}</h2>
+                        </div>
+                        <p>Description goes here</p>
 
                     <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="ShareController">
                         <a class="tab-item" href="#">
