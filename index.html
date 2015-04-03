@@ -46,6 +46,8 @@
             <i class="icon ion-plus-circled"></i>
           </button>
         </div>
+
+        <br><br>
         
 
         <ion-content overflow-scroll='true'>
@@ -59,11 +61,22 @@
                     <div class="item item-avatar">
                       <img src="http://www.google.com/s2/favicons?domain={{item.link}}">
                       <h2>{{item.title}}</h2>
-                      <!--<p>{{item.description}}</p>-->
+                      <!--
+                      <p>{{item.description}}</p>-->
                     </div>
 
+                    <!--
                     <div class="item item-image">
                       <img src="{{item.image}}">
+                    </div>
+                    -->
+                    <div class="thumbnail">
+                        <img src="{{item.image}}" alt="..." />
+                        <div class="wrapper">
+                            <div class="caption post-content">
+                                <h2>{{item.title}}</h2>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- <div class="item item-image">
@@ -73,12 +86,12 @@
                       </p>
                     </div> -->
 
-                    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="ExampleController">
+                    <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="ShareController">
                         <a class="tab-item" href="#">
                           <i class="icon ion-android-favorite"></i>
                           Favourite
                         </a>
-                        <a class="tab-item" href="" ng-click="shareAnywhere('amazing', 'hshbc', 'https://www.reddit.com/r/IAmA/comments/2rgsan/i_am_elon_musk_ceocto_of_a_rocket_company_ama/')">
+                        <a class="tab-item" href="" ng-click="shareAnywhere('{{item.title}}', '{{item.image}}', '{{item.link}}')">
                           <i class="icon ion-android-share-alt"></i>
                           Share
                         </a>

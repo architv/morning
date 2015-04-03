@@ -3,6 +3,8 @@
 .item-avatar>img{
 	width:20px !important;
 	height:20px !important;
+	text-align: center;
+	padding:0px !important;
 }
 
 .available-scroller {
@@ -10,6 +12,31 @@
 }
 
 img {
-  width:  200px;
+  width:  100%;
   height: auto;
+}
+
+.post-content {
+    background: none repeat scroll 0 0 #FFffff;
+    opacity: 0.6;
+    margin: 0 auto;
+    margin-top: -54px;
+    position: relative;
+    padding:20px; // how to get this padding right ?
+    width:100%;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+.post-content>h3 {
+	word-wrap:break-word; //not working ??
+}
+
+.thumbnail {
+    margin:0 auto;
+    text-align:center;
+}
+
+.wrapper {
+    text-align:center;
 }

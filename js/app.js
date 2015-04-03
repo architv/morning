@@ -21,7 +21,7 @@ var example = angular.module('morningapp', ['ionic', 'ngCordova'])
   
 });
 
-example.controller("ExampleController", function($scope, $cordovaSocialSharing) {
+example.controller("ShareController", function($scope, $cordovaSocialSharing) {
  
     $scope.shareAnywhere = function(title, image, link) {
         $cordovaSocialSharing.share("Shared via Morning", title, image, link);
