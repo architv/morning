@@ -36,3 +36,10 @@ example.controller("ShareController", function($scope, $cordovaSocialSharing) {
     }
  
 });
+
+example.controller('MenuController', function($scope, $ionicSideMenuDelegate) {
+  $scope.toggleMenu = function() {
+        alert("foo");
+        //$ionicSideMenuDelegate.toggleLeft($scope.$$childHead);
+  }
+});

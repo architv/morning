@@ -24,7 +24,7 @@
     <!-- your app's js -->
     <script src="js/app.js"></script>
   </head>
-  <body ng-app="morningapp" ng-controller="FeedController">
+  <body ng-app="morningapp" >
 
     <!-- <ion-pane>
       <ion-header-bar class="bar-stable">
@@ -34,12 +34,12 @@
       </ion-content>
     </ion-pane> -->
 
-    <ion-side-menus>
+    <ion-side-menus ng-controller="MenuController">
 
     <!-- Center content -->
       <ion-side-menu-content>
         <div class="bar bar-header bar-royal">
-          <button class="button button-icon icon ion-navicon"></button>
+          <button class="button button-icon icon ion-navicon" ng-click="toggleMenu"></button>
           <h1 class="h1 title">Today</h1>
             <!-- New Task button-->
           <button class="button button-icon">
@@ -53,7 +53,7 @@
         <ion-content overflow-scroll='true'>
     <!-- our list and list items -->
           <!-- <ion-scroll direction="y" class="available-scroller"> -->
-          <ion-list>
+          <ion-list ng-controller="FeedController">
             <ion-item ng-repeat="item in feed">
 
                   <div class="list card">
@@ -61,8 +61,7 @@
                     <div class="item item-avatar">
                       <img src="http://www.google.com/s2/favicons?domain={{item.link}}">
                       <h2>{{item.title}}</h2>
-                      <!--
-                      <p>{{item.description}}</p>-->
+                      <!--<p>{{item.description}}</p>-->
                     </div>
 
                     <!--
@@ -79,19 +78,12 @@
                         </div>
                     </div>
 
-                    <!-- <div class="item item-image">
-                      <img style="width:200px; height:auto;" src="{{item.image}}">
-                      <p>
-                        Monica Lewinsky comes out of the blues yo help people. This is some random text I am typing just to test whether the scroll works better without images.
-                      </p>
-                    </div> -->
-
                     <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="ShareController">
                         <a class="tab-item" href="#">
                           <i class="icon ion-android-favorite"></i>
                           Favourite
                         </a>
-                        <a class="tab-item" href="" ng-click="shareAnywhere('{{item.title}}', '{{item.image}}', '{{item.link}}')">
+                        <a class="tab-item" href="" ng-click='shareAnywhere("{{item.title}}", "{{item.image}}", "{{item.link}}")'>
                           <i class="icon ion-android-share-alt"></i>
                           Share
                         </a>
