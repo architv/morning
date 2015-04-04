@@ -33,7 +33,7 @@
       <ion-content>
       </ion-content>
     </ion-pane> -->
-
+    
     <ion-side-menus>
 
     <!-- Center content -->
@@ -93,11 +93,11 @@
                         <p>Description goes here</p>
 
                     <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="ShareController">
-                        <a class="tab-item" href="#">
+                        <a class="tab-item" href="#" ng-click='setFavourite(2, "{{item.title}}", "{{item.link}}", "{{item.image}}", "yo")'>
                           <i class="icon ion-android-favorite"></i>
                           Favourite
                         </a>
-                        <a class="tab-item" href="" ng-click='shareAnywhere("{{item.title}}", "{{item.image}}", "{{item.link}}")'>
+                        <a class="tab-item" href="" ng-click='shareAnywhere("{{item.title}}", "hsvc", "{{item.link}}")'>
                           <i class="icon ion-android-share-alt"></i>
                           Share
                         </a>
