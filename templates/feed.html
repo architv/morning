@@ -10,7 +10,8 @@
 		      <div class="list card" ng-click="openUrl('{{item.link}}')" style="margin-bottom:5px; margin-top:5px;">
 
 		         <div class="card-image item-image">
-		            <img src="{{item.image}}" alt="..." />
+		            <img class="pic" src="{{item.image}}" alt="..." />
+		            <img src="http://www.google.com/s2/favicons?domain={{item.link}}" class="favicon" />
 		        
 		            <div class="banner"></div>
 		            <h2 class="title">{{item.title}}</h2>

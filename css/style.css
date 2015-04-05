@@ -84,6 +84,18 @@ h2 {
     overflow:hidden;
 }
 
+.card-image>.pic{
+    position: relative;
+}
+
+.card-image>.favicon{
+    width:23px;
+    position: absolute;
+    top:10px;
+    left:10px;
+}
+
+
 .card-image .banner {
     height:125px;
     width:100%;
