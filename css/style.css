@@ -42,8 +42,13 @@ img {
     text-align: left;
 }
 
-.post-content>h3 {
-	word-wrap:break-word; //not working ??
+h2.title{
+    font-size:170%;
+}
+
+h2 {
+    //font-size: 20px !important;
+    font-family: 'FF Tisa', 'San', serif;
 }
 
 .thumbnail {
@@ -96,10 +101,7 @@ img {
     width: 100%
 }
 
-h2 {
-	font-size: 20px !important;
-	font-family: 'FF Tisa', 'San', serif;
-}
+
 
 .card-image h1, 
 .card-image h2, 
@@ -111,10 +113,15 @@ h2 {
     bottom:0px;
     width:100%;
     color:white;
-    background:rgba(0,0,0,0.65);
+    background:rgba(0,0,0,0.45);
     margin:0px;
     padding:6px;
     border:none;
+    //word-break: break-all;
+    white-space:normal;
+    word-wrap:normal;
+    text-align:left;
+    //word-break: keep-all;
 }
 
 .card-header {
@@ -130,3 +137,8 @@ h2 {
 .background {
 	background: #f6f6f6;
 }
+
+img.bw{
+    filter: grayscale(20%);
+}
+

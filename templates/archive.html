@@ -3,20 +3,23 @@
 	<ion-content overflow-scroll='true'>
 	<!-- our list and list items -->
 
-	<h1>Yesterday</h1>
+	<div class="card">
+	  <div class="item item-text-wrap">
+	    <h1>Yesterday</h1>
+	  </div>
+	</div>
+	
 	  <ion-list ng-controller="ArchiveCtrl">
 	    <ion-item ng-repeat="item in feed track by $index" class="background">
 
 	      <div class="list card" style="margin-bottom:5px; margin-top:5px;">
 
 	         <div class="card-image item-image">
-	            <img src="{{item.image}}" alt="..." />
+	            <img class="bw" src="{{item.image}}" alt="..." />
 	        
 	            <div class="banner"></div>
-	            <h2>{{item.title}}</h2>
+	            <h2 class="title">{{item.title}}</h2>
 	          </div>
-
-	          <p>Description goes here</p>
 
 	        <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="ShareController">
 
@@ -37,14 +40,19 @@
 	    </ion-item>
 	  </ion-list>
 
-	 <h1>Saturday</h1>
+	  <div class="card">
+	    <div class="item item-text-wrap">
+	       <h1>Saturday</h1>
+	    </div>
+	  </div>
+	
 	 <ion-list ng-controller="ArchiveCtrl">
 	    <ion-item ng-repeat="item in feed track by $index" class="background">
 
 	      <div class="list card" style="margin-bottom:5px; margin-top:5px;">
 
 	         <div class="card-image item-image">
-	            <img src="{{item.image}}" alt="..." />
+	            <img class="bw" src="{{item.image}}" alt="..." />
 	        
 	            <div class="banner"></div>
 	            <h2>{{item.title}}</h2>
