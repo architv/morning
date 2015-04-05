@@ -33,20 +33,6 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-})
-
 
 .controller('MainCtrl', function($scope, $http, $ionicLoading) {
     $ionicLoading.show({
@@ -63,7 +49,12 @@ angular.module('starter.controllers', [])
         $scope.feed = resp.data.data;
       }, function(err) {
         console.error('ERR', err);
-      })
+      });
+
+    $scope.openUrl = function(URL) {
+        window.open(URL, '_self','location=yes');
+        //to run this do: cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git
+    }
 })
 
 .controller('FavoriteCtrl', function($scope, $http, $ionicLoading) {
@@ -86,7 +77,9 @@ angular.module('starter.controllers', [])
         $scope.feed = resp.data.data;
       }, function(err) {
         console.error('ERR', err);
-      })
+      });
+
+     
 })
 
 .controller("ShareController", function($scope) {
