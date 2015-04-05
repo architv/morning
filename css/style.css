@@ -1,5 +1,19 @@
 /* Empty. Add your own CSS if you like */
 
+
+@font-face {
+font-family:"FF Tisa";
+src: url("/font/TisaOT-Medi.otf") /* EOT file for IE */
+}
+
+@font-face {
+font-family:"FF Tisa boldslant";
+src: url("/font/TisaPro-BoldIta.otf") /* EOT file for IE */
+}
+
+body {
+  font-family: 'FF Tisa', 'San', serif;
+}
 .item-avatar>img{
 	width:20px !important;
 	height:20px !important;
@@ -84,6 +98,7 @@ img {
 
 h2 {
 	font-size: 20px !important;
+	font-family: 'FF Tisa', 'San', serif;
 }
 
 .card-image h1, 

@@ -1,0 +1,40 @@
+<ion-view view-title="Today">
+  
+	<ion-content overflow-scroll='true'>
+	<!-- our list and list items -->
+	  <ion-list ng-controller="MainCtrl">
+	    <ion-item ng-repeat="item in feed" class="background">
+
+	      <div class="list card" style="margin-bottom:5px; margin-top:5px;">
+
+	         <div class="card-image item-image">
+	            <img src="{{item.image}}" alt="..." />
+	        
+	            <div class="banner"></div>
+	            <h2>{{item.title}}</h2>
+	          </div>
+
+	          <p>Description goes here</p>
+
+	        <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="ShareController">
+
+	          <a class="tab-item" href="#" ng-click='setFavourite(2, "{{item.title}}", "{{item.link}}", "{{item.image}}", "blcl")'>
+	            <i class="icon ion-android-favorite"></i>
+	            Favourite
+	          </a>
+
+	          <a class="tab-item" href="" ng-click='shareAnywhere("{{item.title}}", "{{item.image}}", "{{item.link}}")'>
+	            <i class="icon ion-android-share-alt"></i>
+	            Share
+	          </a>
+
+	        </div>
+
+	      </div>
+
+	    </ion-item>
+	  </ion-list>
+	  
+	  </ion-content>
+
+</ion-view>

@@ -1,80 +1,75 @@
-var example = angular.module('morningapp', ['ionic', 'ngCordova'])
-// var favourite = ular.module('morningapp', ['ionic', 'ionic.utils'])
+// Ionic Starter App
 
+// angular.module is a global place for creating, registering and retrieving Angular modules
+// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// the 2nd parameter is an array of 'requires'
+// 'starter.controllers' is found in controllers.js
+angular.module('starter', ['ionic', 'starter.controllers'])
 
-.controller('FeedController', function($scope, $http, $ionicLoading, $cordovaSocialSharing) {
-
-  $ionicLoading.show({
-    content: 'Loading',
-    animation: 'fade-in',
-    showBackdrop: true,
-    maxWidth: 200,
-    showDelay: 0
+.run(function($ionicPlatform) {
+  $ionicPlatform.ready(function() {
+    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+    // for form inputs)
+    if (window.cordova && window.cordova.plugins.Keyboard) {
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+    }
+    if (window.StatusBar) {
+      // org.apache.cordova.statusbar required
+      StatusBar.styleDefault();
+    }
   });
+})
 
-  $http.get('http://orch.in/morningapp').then(function(resp) {
-      console.log('Success', resp.data.data);
-      $ionicLoading.hide();
-      $scope.feed = resp.data.data;
-    }, function(err) {
-      console.error('ERR', err);
-    })
-  
-});
+.config(function($stateProvider, $urlRouterProvider) {
+  $stateProvider
 
-example.controller("ShareController", function($scope, $cordovaSocialSharing) {
- 
-    $scope.shareAnywhere = function(title, image, link) {
-        $cordovaSocialSharing.share("Shared via Morning", title, image, link);
-    }
- 
-    $scope.shareViaTwitter = function(message, image, link) {
-        $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
-            $cordovaSocialSharing.shareViaTwitter(message, image, link);
-        }, function(error) {
-            alert("Cannot share on Twitter");
-        });
-    }
+  .state('app', {
+    url: "/app",
+    abstract: true,
+    templateUrl: "templates/menu.html",
+    controller: 'AppCtrl'
+  })
 
-    $scope.setFavourite = function(post_id, title, url, image, description) {
-
-      if(!((typeof localStorage["post"]) === 'undefined')) {
-        var post = JSON.parse(window.localStorage['post']);
-      } else {
-        var post = new Array();
+  .state('app.about', {
+    url: "/about",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/about.html"
       }
+    }
+  })
 
-      var isFavourite = false;
-      for (var i = 0; i < post.length; i++) {
-        if (post[i].url == url) {
-          isFavourite = true;
+  .state('app.feed', {
+    url: "/feed",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/feed.html",
+        controller: 'MainCtrl'
+      }
+    }
+  })
+
+  .state('app.archive', {
+    url: "/archive",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/archive.html",
+        controller: 'ArchiveCtrl'
+      }
+    }
+  })
+
+    .state('app.favorites', {
+      url: "/favorites",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/favorites.html",
+          controller: 'FavoriteCtrl'
         }
       }
+    });
 
-      console.log(post);
-      if (!isFavourite) {
-        post.push({
-          'id': post_id,
-          'title': title,
-          'url': url,
-          'image': image,
-          'description': description
-        });
-      }
-      console.log(post);
-      window.localStorage['post'] = JSON.stringify(post);
-      alert(post);
 
-    }
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/app/feed');
 });
-
-example.controller('MenuController', function($scope, $ionicSideMenuDelegate) {
-
-  $scope.toggleMenu = function() {
-    $ionicSideMenuDelegate.toggleLeft();
-  };
-});
-
-// favourite.controller('FavouriteController', function($scope, $localstorage)) {
-
-// }

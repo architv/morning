@@ -15,90 +15,15 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-    <!-- social sharing plugin -->
-    <script src="js/ng-cordova.min.js"></script>
-
     <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+    <script src="js/ng-cordova.min.js"></script>
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
   </head>
-  <body ng-app="morningapp" ng-controller="MenuController">
 
-  <ion-side-menus>
-    <!-- <ion-pane> -->
-    
-    <!-- </ion-pane> -->
-
-    <ion-view ion-side-menu-content style="background:#161c1f;">
-
-      <ion-header-bar text-align="center" class="bar-positive" ng-click="toggleMenu()">
-        <button class="button button-icon">
-          <i class="icon ion-navicon"></i>
-        </button>
-        <h1 class="title">Today</h1>
-      </ion-header-bar>
-
-        <ion-content overflow-scroll='true'>
-        <!-- our list and list items -->
-          <ion-list ng-controller="FeedController">
-            <ion-item ng-repeat="item in feed" class="background">
-
-              <div class="list card" style="margin-bottom:5px; margin-top:5px;">
-
-                 <div class="card-image item-image">
-                    <img src="{{item.image}}" alt="..." />
-                
-                    <div class="banner"></div>
-                    <h2>{{item.title}}</h2>
-                  </div>
-
-                  <p>Description goes here</p>
-
-                <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="ShareController">
-
-                  <a class="tab-item" href="#" ng-click='setFavourite(2, "{{item.title}}", "{{item.link}}", "{{item.image}}", "blcl")'>
-                    <i class="icon ion-android-favorite"></i>
-                    Favourite
-                  </a>
-
-                  <a class="tab-item" href="" ng-click='shareAnywhere("{{item.title}}", "{{item.image}}", "{{item.link}}")'>
-                    <i class="icon ion-android-share-alt"></i>
-                    Share
-                  </a>
-
-                </div>
-
-              </div>
-
-            </ion-item>
-          </ion-list>
-          </ion-view>
-
-          <ion-side-menu side="left">
-            <ion-header-bar text-align="center" class="bar-positive">
-              <h1 class="title">Menu</h1>
-            </ion-header-bar>
-
-            <ion-content scroll="false" style="background: rgb(246,246,246)";>
-              <ion-list>
-                <ion-item>
-                  Today
-                </ion-item>
-                <ion-item>
-                  Favourites
-                </ion-item>
-
-              </ion-list>
-            </ion-content>
-
-          </ion-side-menu>
-          
-          <!-- </ion-scroll> -->
-        </ion-content>
-    
-  </ion-side-menus>
-
+  <body ng-app="starter">
+    <ion-nav-view></ion-nav-view>
   </body>
 </html>
