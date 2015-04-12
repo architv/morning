@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ngCordova'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the login modal
@@ -34,9 +34,10 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('MainCtrl', function($scope, $http, $ionicLoading) {
+.controller('MainCtrl', function($scope, $http, $ionicLoading, $cordovaLocalNotification, $cordovaInAppBrowser) {
+
     $ionicLoading.show({
-      content: 'Loading',
+      content: '<ion-spinner icon="android"></ion-spinner>',
       animation: 'fade-in',
       showBackdrop: true,
       maxWidth: 200,
@@ -51,42 +52,23 @@ angular.module('starter.controllers', [])
         console.error('ERR', err);
       });
 
+    // $scope.getNotificationIds = function () {
+    // $cordovaLocalNotification.getScheduledIds().then(function (scheduledIds) {
+    //   console.log(scheduledIds);
+    //   alert(scheduledIds);
+    // });
+  // };
+
     $scope.openUrl = function(URL) {
-//        var win = window.open(URL, '_blank', 'location=yes');
-//        win.addEventListener( "loadstart", function() {
-//     setTimeout(function() {
-//       console.log("yo");
-//         win.close();
-//     }, 5000 );
-// });
-// console.log("yo1");
-// output = '<h1>Hello, World!</h1>';
-    window.open( URL, "_system", 'location=yes');
-    $ionicLoading.show({
-      content: 'Loading',
-      animation: 'fade-in',
-      showBackdrop: false,
-      maxWidth: 200,
-      duration: 3000,
-    });
-    // win.addEventListener("load", function() {
-    //     alert("yo");
-    // }, false);
-// var btn = document.createElement("BUTTON");        // Create a <button> element
-// var t = document.createTextNode("CLICK ME");       // Create a text node
-// btn.appendChild(t);                                // Append the text to <button>
-// win.document.body.appendChild(btn);
-// win.console.log("yo");
-// console.log("yo2");
-// ref.executeScript({ code: 'console.log("yo");' });
-// win.close();
-// win.addEventListener( "loadstop", function() {
-//     console.log("yo3");
-//     win.close();
-// });
-// console.log("yo4");
-        //to run this do: cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git
-        return false;
+      window.open( URL, "_system", 'location=yes');
+      $ionicLoading.show({
+        content: 'Loading',
+        animation: 'fade-in',
+        showBackdrop: true,
+        maxWidth: 200,
+        duration: 3000,
+      });
+      return false;
     }
 })
 
