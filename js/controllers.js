@@ -61,14 +61,24 @@ angular.module('starter.controllers', [])
 // });
 // console.log("yo1");
 // output = '<h1>Hello, World!</h1>';
-var win = window.open( URL, "_blank", 'location=yes' );
+    window.open( URL, "_system", 'location=yes');
+    $ionicLoading.show({
+      content: 'Loading',
+      animation: 'fade-in',
+      showBackdrop: false,
+      maxWidth: 200,
+      duration: 3000,
+    });
+    // win.addEventListener("load", function() {
+    //     alert("yo");
+    // }, false);
 // var btn = document.createElement("BUTTON");        // Create a <button> element
 // var t = document.createTextNode("CLICK ME");       // Create a text node
 // btn.appendChild(t);                                // Append the text to <button>
 // win.document.body.appendChild(btn);
 // win.console.log("yo");
 // console.log("yo2");
-// win.executeScript({ file: "rondomscript.js" });
+// ref.executeScript({ code: 'console.log("yo");' });
 // win.close();
 // win.addEventListener( "loadstop", function() {
 //     console.log("yo3");
@@ -76,6 +86,7 @@ var win = window.open( URL, "_blank", 'location=yes' );
 // });
 // console.log("yo4");
         //to run this do: cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git
+        return false;
     }
 })
 
@@ -119,8 +130,13 @@ var win = window.open( URL, "_blank", 'location=yes' );
         });
     }
 
-    $scope.setFavourite = function(post_id, title, url, image, description) {
+    $scope.setFavourite = function(post_id, title, url, image, description, $event) {
 
+      // not the angular way
+      var favoriteIcon = $event.currentTarget;
+      favoriteIcon.style.color = "red";
+
+      console.log(favoriteIcon.style.color);
       if(!((typeof localStorage["post"]) === 'undefined')) {
         var post = JSON.parse(window.localStorage['post']);
       } else {

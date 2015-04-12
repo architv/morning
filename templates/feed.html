@@ -7,9 +7,9 @@
 		  <ion-list ng-controller="MainCtrl">
 		    <ion-item ng-repeat="item in feed" class="background">
 
-		      <div class="list card" ng-click="openUrl('{{item.link}}')" style="margin-bottom:5px; margin-top:5px;">
+		      <div class="list card" style="margin-bottom:5px; margin-top:5px;">
 
-		         <div class="card-image item-image">
+		         <div class="card-image item-image" ng-click="openUrl('{{item.link}}', $event);">
 		            <img class="pic" src="{{item.image}}" alt="..." />
 		            <img src="http://www.google.com/s2/favicons?domain={{item.link}}" class="favicon" />
 		        
@@ -19,8 +19,8 @@
 
 		        <div class="item tabs tabs-secondary tabs-icon-left" ng-controller="ShareController">
 
-		          <a class="tab-item" href="#" ng-click='setFavourite(2, "{{item.title}}", "{{item.link}}", "{{item.image}}", "blcl")'>
-		            <i class="icon ion-android-favorite"></i>
+		          <a class="tab-item favorite" href="#" ng-click='setFavourite(2, "{{item.title}}", "{{item.link}}", "{{item.image}}", "blcl", $event)'>
+		            <i class="icon ion-android-favorite" id="favorite"></i>
 		            Favourite
 		          </a>
 
