@@ -1,6 +1,6 @@
-angular.module('starter.controllers', ['ngCordova'])
+// angular.module('starter.controllers', ['ionic','ngCordova'])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+app.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -31,10 +31,10 @@ angular.module('starter.controllers', ['ngCordova'])
       $scope.closeLogin();
     }, 1000);
   };
-})
+});
 
 
-.controller('MainCtrl', function($scope, $http, $ionicLoading, $cordovaLocalNotification, $cordovaInAppBrowser) {
+app.controller('MainCtrl', function($scope, $http, $ionicLoading, $cordovaLocalNotification, $cordovaInAppBrowser) {
 
     $ionicLoading.show({
       content: '<ion-spinner icon="android"></ion-spinner>',
@@ -60,25 +60,25 @@ angular.module('starter.controllers', ['ngCordova'])
   // };
 
     $scope.openUrl = function(URL) {
-      window.open( URL, "_system", 'location=yes');
+      window.open( URL, '_system', 'location=yes');
       $ionicLoading.show({
         content: 'Loading',
         animation: 'fade-in',
         showBackdrop: true,
         maxWidth: 200,
-        duration: 3000,
+        // duration: 6000,
       });
       return false;
     }
-})
+});
 
-.controller('FavoriteCtrl', function($scope, $http, $ionicLoading) {
+app.controller('FavoriteCtrl', function($scope, $http, $ionicLoading) {
     // var favoriteButton = document.getElementById("favorite");
     $scope.feed = JSON.parse( window.localStorage["post"] || '{}');
     console.log($scope.feed);
-})
+});
 
-.controller('ArchiveCtrl', function($scope, $http, $ionicLoading) {
+app.controller('ArchiveCtrl', function($scope, $http, $ionicLoading) {
     $ionicLoading.show({
       content: 'Loading',
       animation: 'fade-in',
@@ -91,17 +91,16 @@ angular.module('starter.controllers', ['ngCordova'])
         console.log('Success', resp.data.data);
         $ionicLoading.hide();
         $scope.feed = resp.data.data;
-      }, function(err) {
+    }, function(err) {
         console.error('ERR', err);
-      });
+    }); 
+});
 
-     
-})
-
-.controller("ShareController", function($scope) {
+app.controller("ShareController", function($scope, $cordovaSocialSharing) {
  
     $scope.shareAnywhere = function(title, image, link) {
         $cordovaSocialSharing.share("Shared via Morning", title, image, link);
+        alert("jello");
     }
  
     $scope.shareViaTwitter = function(message, image, link) {
