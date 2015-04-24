@@ -14,8 +14,8 @@ app.run(function($ionicPlatform, $cordovaLocalNotification) {
 
     $cordovaLocalNotification.add({
       id: '20',
-      title: "Meeting in 15 minutes!",
-      text: "Jour fixe Produktionsbesprechung",
+      title: "You morning feed",
+      text: "Your daily dose of Inpiration",
       every: "minute"
       // parameter documentation:
       // https://github.com/katzer/cordova-plugin-local-notifications#further-informations-1

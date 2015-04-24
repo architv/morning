@@ -104,6 +104,9 @@ app.controller("ShareController", function($scope, $cordovaSocialSharing) {
     }
  
     $scope.shareViaTwitter = function(message, image, link) {
+        console.log(message);
+        console.log(image);
+        console.log(link);
         $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
             $cordovaSocialSharing.shareViaTwitter(message, image, link);
         }, function(error) {
